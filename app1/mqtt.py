@@ -22,18 +22,22 @@ def on_message(client, userdata, msg):
         t.save()
 
     if msg.topic == "zigbee2mqtt/zbbtn_1":
-        pload = json.loads(msg.payload.decode('utf-8'))
-        act = str(pload['action'])
-        if act:
-            
-            t = zbbtn(topic =str(msg.topic) , created_date = timezone.now(), battery = int(pload['battery']), 
-            action  = act, linkquality = int(pload['linkquality']), voltage = int(pload['voltage'])) 
-            t.save()           
-            if act == "single":
-                publish(client, "1")
-            if act == "double":
-                publish(client, "0")
 
+        try:
+            pload = json.loads(msg.payload.decode('utf-8'))
+        
+            if str(pload['action']):
+                act = str(pload['action'])
+                t = zbbtn(topic =str(msg.topic) , created_date = timezone.now(), battery = int(pload['battery']), 
+                action  = act, linkquality = int(pload['linkquality']), voltage = int(pload['voltage'])) 
+                t.save()           
+                if act == "single":
+                    publish(client, "1")
+                if act == "double":
+                    publish(client, "0")
+        except:
+            pass
+            print("except")
 
 
     if msg.topic == "zigbee2mqtt/zbtemp_1":

@@ -25,7 +25,7 @@ class zbbtn(models.Model):
     voltage = models.IntegerField(default = None)
 
     def __str__(self):
-        return f'{[str(self.topic),self.created_date , str(self.action)]!r}'
+        return f'{self.topic}  {self.created_date.strftime("%Y-%m-%d %H:%M")} {self.action}'
         #self.created_date.strftime("%d %b %Y %H:%M:%S")
 
 class zbtmphum(models.Model):
