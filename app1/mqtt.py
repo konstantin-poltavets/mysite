@@ -37,7 +37,7 @@ def on_message(client, userdata, msg):
                     publish(client, "0")
         except:
             pass
-            print("except")
+
 
 
     if msg.topic == "zigbee2mqtt/zbtemp_1":
