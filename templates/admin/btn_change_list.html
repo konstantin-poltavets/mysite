@@ -1,0 +1,52 @@
+<!-- sales/templates/admin/sale_summary_change_list.html -->
+{% extends "admin/change_list.html" %}
+{% block content_title %}
+    <h1> Button 1 </h1>
+{% endblock %}
+{% block result_list %}
+   
+
+
+<div class="results">
+  <table>
+  <thead>
+    <tr>
+      <th>
+        <div class="text">
+          <a href="#">id</a>
+        </div>
+      </th>
+      <th>
+        <div class="text">
+          <a href="#">created</a>
+        </div>
+      </th>
+
+      <th>
+        <div class="text">
+          <a href="#">action</a>
+        </div>
+      </th>
+
+
+    </tr>
+  </thead>
+  <tbody>
+
+     {% for row in summary %}
+    <tr class="{% cycle 'row1' 'row2' %}">
+      <td> <b><a href="http:/admin/app1/zbbtn/{{ row.id }}/change/"> {{ row.created_date }}   </td>
+      <td> {{ row.id }} </td>
+      <td> {{ row.action }} </td>
+      
+
+
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+<!-- ... -->
+
+{% endblock %}
+{% block pagination %}{% endblock %}
