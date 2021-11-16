@@ -37,7 +37,7 @@ admin.site.register(zbtmphum, ZbtmphumAdmin)
 class ZbbtnAdmin(admin.ModelAdmin):
     list_display = ('topic', 'created_date', 'action', 'voltage')
     list_filter = ('created_date',)
-    change_list_template = '/home/pi/django-sendbox/mysite/templates/admin/btn_change_list.html'
+    #change_list_template = '/home/pi/django-sendbox/mysite/templates/admin/btn_change_list.html'
 
 
        
@@ -55,7 +55,7 @@ class ZbbtnAdmin(admin.ModelAdmin):
         response.context_data['summary'] = list(
             qs.values('created_date', 'action', 'id'))
 
-        print(response.context_data['summary'])
+        #print(response.context_data['summary'])
 
 
         

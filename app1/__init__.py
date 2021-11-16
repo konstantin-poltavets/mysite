@@ -1,7 +1,7 @@
-from . import mqtt
+#from . import mqtt
 
 
 
-mqtt.client.loop_start()
+#mqtt.client.loop_start()
 print("------------------------init")
 
